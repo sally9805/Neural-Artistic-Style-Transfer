@@ -12,12 +12,12 @@ We used convolutional neural network, specifically VGG model, for the implementa
 We have acquired decent synchronized images using model with tuned parameters. 
 *Figure 1:*
 *Figure 2:*
-We found convolutional neural network has outstanding performance on image processing. 
-The style or content representation of an image is measured by the output of a specific layer of the neural network.
-In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices[1] of the outputs at various layers.
+We found convolutional neural network has outstanding performance on image processing.    
+The style or content representation of an image is measured by the output of a specific layer of the neural network.   
+In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices[1] of the outputs at various layers.   
 ### Contact Us
-Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu
-Jiajia Luo  - B.S in Computer Engineering - jiajialuo2018@u.northwestern.edu
+Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu   
+Jiajia Luo  - B.S in Computer Engineering - jiajialuo2018@u.northwestern.edu   
 
 ## Project Introduction
 ### Model
