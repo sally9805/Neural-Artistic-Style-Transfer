@@ -1,4 +1,7 @@
-## Welcome to GitHub Pages
+## Style Transfer
+EECS349: Machine Learning - Northwestern University
+Instructed by Prof. Doug Downey
+Haishan Gao (haishangao2020@u.northwestern.edu), Jiajia Luo (jiajialuo2018@u.northwestern.edu)
 
 You can use the [editor on GitHub](https://github.com/sally9805/eecs349project/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
