@@ -2,7 +2,7 @@
 ### Motivation
 We want to use machine learning programs to transfer daily pictures to artistic style images by using a style image for obtaining the transferred style and a content image which we want to transfer the style onto. This project can demonstrate how well machine learning techniques perform on image processing and how artificial intelligence can, to some extent, achieve considerable success in the field of art and creativity.
 <p align="center">
-  <img src="images/prisma.webp" width="40%"><br />
+  <img src="images/prisma.webp" width="40%">
 </p>
 *Prisma style transfer image*
 ### Approach
