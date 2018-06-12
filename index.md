@@ -7,21 +7,23 @@ We want to use machine learning programs to transfer daily pictures to artistic 
 </p>
 
 ### Approach
-We used convolutional neural network, specifically VGG model, for the implementation.The data set we used for this project consists of two sets of images: style images and content images. We have selected 40 famous paintings as style images. To transfer artistic style from paintings to content images, we include 4 images for testing: two of them are sceneries and the other two are portraits. 
+We used convolutional neural network, specifically VGG16 model, for the implementation. The data set we used for this project consists of two sets of images: style images and content images. We have selected 40 famous paintings as style images. To transfer artistic style from paintings to content images, we include 4 images for testing: two of them are sceneries and the other two are portraits. 
 ### Result
-We have acquired decent synchronized images using model with tuned parameters. 
-*Figure 1:*
-*Figure 2:*
-We found convolutional neural network has outstanding performance on image processing.    
-The style or content representation of an image is measured by the output of a specific layer of the neural network.   
-In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices[1] of the outputs at various layers.   
+We have acquired decent synthesized images using model with tuned parameters.   
+*Figure 1:*    
+*Figure 2:*    
+We found that convolutional neural network has outstanding performance on image processing. Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 1, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
+According to our observation, we recommend using paintings with simple outlines and big blocks of colorful blushes as style images for artistic style transfer.
 ### Contact Us
-Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu   
-Jiajia Luo  - B.S in Computer Engineering - jiajialuo2018@u.northwestern.edu   
+Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu     
+Jiajia Luo  - B.S in Computer Engineering - jiajialuo2018@u.northwestern.edu     
 
 ## Project Introduction
 ### Model
+We have 
 ### Features
+The style or content representation of an image is measured by the output of a specific layer of the neural network.   
+In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices[1] of the outputs at various layers. 
 ### Data
 The data set consists of two types of images: style image and content image. We collected approximately one hundred representative paintings and selected 40 of them as the style image data set for our project. We then assigned them into 8 different categories: xx xx. For content images, we include two portraits and two sceneries since we observed that the results might differ when we used different images as content image.
 We applied 40 style image for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set.
