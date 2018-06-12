@@ -9,10 +9,12 @@ We want to use machine learning programs to transfer daily pictures to artistic 
 ### Approach
 We used convolutional neural network, specifically VGG16 model, for the implementation. The data set we used for this project consists of two sets of images: style images and content images. We have selected 40 famous paintings as style images. To transfer artistic style from paintings to content images, we include 4 images for testing: two of them are sceneries and the other two are portraits. 
 ### Result
-We have acquired decent synthesized images using model with tuned parameters.   
-*Figure 1:*    
-*Figure 2:*    
-We found that convolutional neural network has outstanding performance on image processing. Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 1, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
+In summary, we found that convolutional neural network performed very well on this task due to its outstanding performance on analyzing visual imagery. We have acquired decent synthesized images using CNN model with tuned parameters.   
+<img src="images/deer_jp1.png" width="500px">   
+*Figure 1: Kanagawa Waved Deering*    
+<img src="images/robert_por7.png" width="500px">   
+*Figure 2: Le Rêve Robert Downey Jr.*      
+Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 1, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
 According to our observation, we recommend using paintings with simple outlines and big blocks of colorful blushes as style images for artistic style transfer.
 ### Contact Us
 Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu     
