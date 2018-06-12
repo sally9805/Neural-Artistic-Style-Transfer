@@ -28,13 +28,11 @@ In summary, we found that convolutional neural network performed very well on th
 Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 2, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors as in Figure 3, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
 
 <p align="center">
-  <img src="images/robert_por7.png" width="500px"><br />
-  <i>Figure 2: Le Rêve Robert Downey Jr.</i>
+  <img src="images/deer_abs6.png" width="500px"><br />
+  <i>Figure 3: Fragmented Deering</i>
 </p>     
 
-According to our observation, we summarized the following points when selecting style images for artistic style transfer:
-- Choose paintings with simple outlines and big blocks of colorful blushes.
-- Avoid selecting paitings with too many colors.
+According to our observation, we recommend to select style images with simple outlines and big blocks of colorful blushes for artistic style transfer and to avoid selecting paintings with too many colors.
 
 ### Contact Us
 Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu     
@@ -42,18 +40,33 @@ Jiajia Luo  - B.S in Computer Engineering - jiajialuo2018@u.northwestern.edu
 
 ## Project Introduction
 
-### Model
-We use [*VGG19* CNN model](https://keras.io/applications/#vgg19) for implementation of the project. You can refer to the source code [here]().
+### Methodology
+We use the pre-trained [*VGG19*](https://keras.io/applications/#vgg19) convolutional neural network model from Keras library in Python for our implementation due to its stability and reliability. The model requires a style image and a content image as inputs, and a noise image for optimization. During the optimization process, the code runs *scipy*-based optimization (L-BFGS) over the pixels of the generated image to minimize a loss value calculated by weighting content and style losses (the representation of "loss value" is introduced in the next section). Finally, the noise image will be optimized into a synchronized image which has content of the content image and a similar style from the style image.   
+You can refer to the source code [here](Final_project_Style_transfer.ipynb).
 
 ### Feature Representation
-The style or content representation of an image is measured by the output of a specific layer of the neural network. We have tried several layers to find the. You can find the code here
-In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices of the outputs at various layers. 
-### Data
+The style or content representation of an image is measured by the output of a specific layer of the neural network. We have iterated through several layers to find the optimal one for output. 
+In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the **Gram matrices** of the outputs at various layers. (*A Gram matrix results from multiplying a matrix with the transpose of itself and contains non-localized information about the image, such as texture, shapes, and weights - which we defined as “style” representation in
+our case.*)
+
+### Data Collection
 The data set consists of two types of images: style image and content image. We collected approximately one hundred representative paintings and selected 40 of them as the style image data set for our project. We then assigned them into 8 different categories: xx xx. For content images, we include two portraits and two sceneries since we observed that the results might differ when we used different images as content image.
 We applied 40 style image for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set.
-*Figure 1: Style Image Data Set*
-*Figure 2: Content Image Data Set*
+<p align="center">
+  <img src="images/all40style.jpg" width="200px"><br />
+  <i>Figure 4: Style Image Data Set</i>
+</p> 
+
+<p align="center">
+  <img src="images/train_notext.png" width="500px"><br />
+  <i>Figure 5: Content Image Data Set</i>
+</p>
+
 *Figure 3: Five iterations for each style-content pair*
+### Evaluation
+We include both quantative and qualitative evaluations for the results retured by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.  
+
+### Findings
 
 You can use the [editor on GitHub](https://github.com/sally9805/eecs349project/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
