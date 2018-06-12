@@ -32,7 +32,7 @@ Since CNN utilized Max Pooling as downsampling strategy, when the image contains
   <i>Figure 3: Fragmented Deering</i>
 </p>     
 
-According to our observation, we recommend to select style images with simple outlines and big blocks of colorful blushes for artistic style transfer and to avoid selecting paintings with too many colors.
+According to our observation, we recommend to select style images with simple outlines and big blocks of colorful blushes for artistic style transfer and to avoid using paintings with many small blocks of colors such as *Broadway Boogie-Woogie* by *Piet Mondrian* in Figure 3.
 
 ### Contact Us
 Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu     
@@ -64,7 +64,7 @@ We applied 40 style image for each content image and we ran 5 iterations of opti
 
 *Figure 3: Five iterations for each style-content pair*
 ### Evaluation
-We include both quantative and qualitative evaluations for the results retured by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.  
+We include both quantative and qualitative evaluations for the results returned by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.  
 
 ### Findings
 
