@@ -1,7 +1,7 @@
 ## Abstract
 ### Motivation
 We want to use machine learning programs to transfer daily pictures to artistic style images by using a style image for obtaining the transferred style and a content image which we want to transfer the style onto. This project can demonstrate how well machine learning techniques perform on image processing and how artificial intelligence can, to some extent, achieve considerable success in the field of art and creativity.
-![Image](images/prisma.webp)
+![Image](images/prisma.webp width="120")
 ### Approach
 ### Result
 This website summarizes the final project we implemented for Machine Learning course at Northwestern in 2018 Spring and the project topic title is Neural Network Artistic Style Transfer.
