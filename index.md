@@ -5,18 +5,22 @@ We want to use machine learning programs to transfer daily pictures to artistic 
 <p align="center">
   <img src="images/prisma.webp" width="40%"><br />
   <i>Prisma style transfer image</i>
-</p>   
+</p> 
 Current style tranfer technques such as Prisma emphasized more on the color and layouts of style image. Hence, the synchronized image might lose the color and distort the outline of the content image. In our project, we would like to explore a technique that could keep the features of content images as well as apply artistic styles from style images.   
 
 ### Approach
-We used convolutional neural network, specifically VGG16 model, for the implementation. The data set we used for this project consists of two sets of images: style images and content images. We have selected 40 famous paintings as style images. To transfer artistic style from paintings to content images, we include 4 images for testing: two of them are sceneries and the other two are portraits. 
+We used convolutional neural network, specifically [*VGG19 model* in *Keras* library](https://keras.io/applications/#vgg19) in *Python*, for the implementation. The data set we used for this project consists of two sets of images: style images and content images. We have selected 40 famous paintings as style images. To transfer artistic style from paintings to content images, we include 4 images for testing: two of them are sceneries and the other two are portraits. 
 
 ### Result
-In summary, we found that convolutional neural network performed very well on this task due to its outstanding performance on analyzing visual imagery. We have acquired decent synthesized images using CNN model with tuned parameters.   
-<img src="images/deer_jp1.png" width="500px">   
-*Figure 1: Kanagawa Waved Deering*    
-<img src="images/robert_por7.png" width="500px">   
-*Figure 2: Le Rêve Robert Downey Jr.*      
+In summary, we found that convolutional neural network performed very well on this task due to its outstanding performance on analyzing visual imagery. We have acquired decent synthesized images using CNN model with tuned parameters. 
+<p align="center">
+  <img src="images/deer_jp1.png" width="500px"><br />
+  <i>Figure 1: Kanagawa Waved Deering</i>
+</p> 
+<p align="center">
+  <img src="images/robert_por7.png" width="500px"><br />
+  <i>Figure 2: Le Rêve Robert Downey Jr.</i>
+</p>     
 Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 1, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
 According to our observation, we recommend using paintings with simple outlines and big blocks of colorful blushes as style images for artistic style transfer.   
 
@@ -25,11 +29,13 @@ Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu
 Jiajia Luo  - B.S in Computer Engineering - jiajialuo2018@u.northwestern.edu     
 
 ## Project Introduction
+
 ### Model
 We have 
-### Features
+
+### Feature Representation
 The style or content representation of an image is measured by the output of a specific layer of the neural network.   
-In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices[1] of the outputs at various layers. 
+In order to measure the similarity of the style/content of two images, we further define values “style loss” and “content loss” between the processed image and the input images, with less “loss” meaning the images more similar in style and content, respectively. Content loss is measured by passing both the synthesized image and the content image through some layers of the model and finding the Euclidean distance between the intermediate representations of those images; while style loss is measured similarly by comparing instead the Gram matrices of the outputs at various layers. 
 ### Data
 The data set consists of two types of images: style image and content image. We collected approximately one hundred representative paintings and selected 40 of them as the style image data set for our project. We then assigned them into 8 different categories: xx xx. For content images, we include two portraits and two sceneries since we observed that the results might differ when we used different images as content image.
 We applied 40 style image for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set.
