@@ -32,7 +32,7 @@ Since CNN utilized Max Pooling as downsampling strategy, when the image contains
   <i>Figure 3: Fragmented Deering</i>
 </p>     
 
-According to our observation, we recommend to select style images with simple outlines and big blocks of colorful blushes for artistic style transfer and to avoid using paintings with many small blocks of colors such as *Broadway Boogie-Woogie* by *Piet Mondrian* in Figure 3.
+According to our observation, we recommend selecting style images with simple outlines and big blocks of colorful blushes for artistic style transfer and avoiding using paintings with many small blocks of colors such as *Broadway Boogie-Woogie* by *Piet Mondrian* in Figure 3.
 
 ### Contact Us
 Haishan Gao -   B.S in Computer Science   - haishangao2020@u.northwestern.edu     
@@ -51,7 +51,7 @@ our case.*)
 
 ### Data Collection
 The data set consists of two types of images: style image and content image. We collected approximately one hundred representative paintings and selected 40 of them as the style image data set for our project. We then assigned them into 8 different categories: xx xx. For content images, we include two portraits and two sceneries since we observed that the results might differ when we used different images as content image.
-We applied 40 style image for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set.
+We applied 40 style images for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set. *You can find all 800 synthesized photos [here]().*
 <p align="center">
   <img src="images/all40style.jpg" width="200px"><br />
   <i>Figure 4: Style Image Data Set</i>
@@ -61,10 +61,26 @@ We applied 40 style image for each content image and we ran 5 iterations of opti
   <img src="images/train_notext.png" width="500px"><br />
   <i>Figure 5: Content Image Data Set</i>
 </p>
+<p align="center">
+  <img src="images/5 iterations.png" width="1650px"><br />
+  <i>Figure 6: Five iterations for each style-content pair</i>
+</p>
 
-*Figure 3: Five iterations for each style-content pair*
 ### Evaluation
-We include both quantative and qualitative evaluations for the results returned by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.  
+
+We include both quantative and qualitative evaluations for the results returned by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.   
+When we are evaluating the synthesized images manually, we find that as the iterations of optimization proceed, the noise image is more similar with the style image (i.e. the synthesized image contains more features in the style image such as colors, patterns and strokes) as shown in Figure 6. Hence, in the first iteration of optimization, the synthesized image is most similar with the content image.    
+After we gave ratings to all 800 images, we tried to find correlations between manual ratings of the images and their loss values statistically. However, it is disappointing that a conclusion can be made that there is no correlation between them. In our points of views, a primary reason is that human evaluations are very subjective especially when the differences between the images are trivial. However, when two synthesized images use the same content image and their final loss values (after 5 iterations) differ a lot with different orders of magnitude, they might still look similar and it is  not possible for us to give an exact conclusion on which one is better.     
+Another interesting point is that we find in most cases we evalute the image in the first iteration (which looks most similar to the content image) as the most artistically good-looking among all five, especially when all five iterations of images are not ideal.  
+
+correlation==>no relation
+我们人评判是很主观的，我们有时候看起来很印象派的
+1）人喜欢iteration'小的时候，是喜欢他偏原图content，原因是后面的太乱
+2）喜欢中的时候，既有content轮廓，也有style颜色/风格
+3）大，blur
+人evaluate觉得好看的 loss variance 接近
+
+
 
 ### Findings
 
