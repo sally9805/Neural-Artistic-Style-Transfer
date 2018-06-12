@@ -2,9 +2,9 @@
 ### Motivation
 We want to use machine learning programs to transfer daily pictures to artistic style images by using a style image for obtaining the transferred style and a content image which we want to transfer the style onto. This project can demonstrate how well machine learning techniques perform on image processing and how artificial intelligence can, to some extent, achieve considerable success in the field of art and creativity.
 <p align="center">
-  <img src="images/prisma.webp" width="40%">
-</p>
+  <img src="images/prisma.webp" width="40%"></p>
 *Prisma style transfer image*
+
 ### Approach
 We used convolutional neural network, specifically VGG model, for the implementation.The data set we used for this project consists of two sets of images: style images and content images. We have selected 40 famous paintings as style images. To transfer artistic style from paintings to content images, we include 4 images for testing: two of them are sceneries and the other two are portraits. 
 ### Result
