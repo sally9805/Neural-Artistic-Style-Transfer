@@ -4,8 +4,6 @@ We want to use machine learning programs to transfer daily pictures to artistic 
 
 <p align="center">
   <img src="images/prisma.webp" width="40%">
-</p>
-<p align="center">
   <i>Prisma style transfer image</i>
 </p>
 
