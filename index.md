@@ -25,14 +25,6 @@ In summary, we found that convolutional neural network performed very well on th
   <i>Figure 2: Le Rêve Robert Downey Jr.</i>
 </p>     
 
-<p align="center">
-  <img src="images/grant_jp2.png" width="500px"><br />
-</p>  
-
-<p align="center">
-  <img src="images/alice b3.png" width="500px"><br />
-</p>  
-
 Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 2, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors as in Figure 3, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
 
 <p align="center">
@@ -70,15 +62,17 @@ We applied 40 style images for each content image and we ran 5 iterations of opt
   <img src="images/train_notext.png" width="500px"><br />
   <i>Figure 5: Content Image Data Set</i>
 </p>
-<p align="center">
-  <img src="images/5 iterations.png" width="1650px"><br />
-  <i>Figure 6: Five iterations for each style-content pair</i>
-</p>
 
 ### Evaluation
 
 We include both quantative and qualitative evaluations for the results returned by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.   
-When we are evaluating the synthesized images manually, we find that as the iterations of optimization proceed, the noise image is more similar with the style image (i.e. the synthesized image contains more features in the style image such as colors, patterns and strokes) as shown in Figure 6. Hence, in the first iteration of optimization, the synthesized image is most similar with the content image.    
+When we are evaluating the synthesized images manually, we find that as the iterations of optimization proceed, the noise image is more similar with the style image (i.e. the synthesized image contains more features in the style image such as colors, patterns and strokes) as shown in Figure 6. Hence, in the first iteration of optimization, the synthesized image is most similar with the content image. 
+
+<p align="center">
+  <img src="images/5 iterations.png" width="1650px"><br />
+  <i>Figure 6: Five iterations for each style-content pair</i>
+</p>   
+
 After we gave ratings to all 800 images, we tried to find correlations between manual ratings of the images and their loss values statistically. However, it is disappointing that a conclusion can be made that there is no correlation between them. In our points of views, a primary reason is that human evaluations are very subjective especially when the differences between the images are trivial. However, when two synthesized images use the same content image and their final loss values (after 5 iterations) differ a lot with different orders of magnitude, they might still look similar and it is not possible for us to give an exact conclusion on which one is better.     
 Another interesting point is that we find in most cases we consider the image in the first iteration (which looks most similar to the content image) as the most artistically good-looking among all five, especially when all five iterations of images are not ideal. Following are some points we summarized after the evaluation process:   
 - In the cases when we give the first two iterations highest ratings, the trained image is more similar to the content image and the later iterations might produce images that contain messy textures as in Figure 3. The first iteration produces an image that keeps most features of the content image and very basic features such as colors of the style image.
@@ -109,7 +103,15 @@ We summarized some findings after analyzing all synthesized images we obtained.
 </p>  
 
 ### Results
-In summary, our implementation using CNN model can successfully realize artistic style transfer. The novelty of the project is that we explore how to implement style transfer when the content image is the emphasis of the synthesized image. We also summarized some patterns after we evaluated all 800 synthesized images.
+In summary, our implementation using CNN model can successfully realize artistic style transfer. The novelty of the project is that we explore how to implement style transfer when the content image is the emphasis of the synthesized image. We also summarized some patterns after we evaluated all 800 synthesized images.    
+
+<p align="center">
+  <img src="images/grant_jp2.png" width="500px"><br />
+</p>  
+
+<p align="center">
+  <img src="images/alice b3.png" width="500px"><br />
+</p>  
 
 ### Future Works
 Future works can focus on object segmentations for better performance, especially for portraits. According to our observations, abstract paintings with clear outlines and impressionism art can often perform well as style images for portraits. Further testing and research should be done to testify this observation point. 
