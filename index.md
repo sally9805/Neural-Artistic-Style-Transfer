@@ -50,8 +50,9 @@ In order to measure the similarity of the style/content of two images, we furthe
 our case.*)
 
 ### Data Collection
-The data set consists of two types of images: style image and content image. We collected approximately one hundred representative paintings and selected 40 of them as the style image data set for our project. We then assigned them into 8 different categories: xx xx. For content images, we include two portraits and two sceneries since we observed that the results might differ when we used different images as content image.
-We applied 40 style images for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set. *You can find all 800 synthesized photos [here]().*
+The data set consists of two types of images: style image and content image. We collected approximately one hundred representative paintings and selected 40 of them as the style image data set for our project. We then assigned them into 8 different categories: abstract art, Chinese paitings, Japanese Ukiyo-e, portraits, still, sceneries, buildings and illustrations. For content images, we include two portraits and two sceneries since we observed that the results might differ when we used different images as content image.
+We applied 40 style images for each content image and we ran 5 iterations of optimization for each pair. Hence, we obtained 800 photos in total in out final data set.   
+*We include all 800 synthesized photos [here](https://drive.google.com/drive/folders/1GbMVbA7TIFv0AkmXngNmnOR_7chdFqfC?usp=sharing).*
 <p align="center">
   <img src="images/all40style.jpg" width="200px"><br />
   <i>Figure 4: Style Image Data Set</i>
@@ -71,51 +72,39 @@ We applied 40 style images for each content image and we ran 5 iterations of opt
 We include both quantative and qualitative evaluations for the results returned by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.   
 When we are evaluating the synthesized images manually, we find that as the iterations of optimization proceed, the noise image is more similar with the style image (i.e. the synthesized image contains more features in the style image such as colors, patterns and strokes) as shown in Figure 6. Hence, in the first iteration of optimization, the synthesized image is most similar with the content image.    
 After we gave ratings to all 800 images, we tried to find correlations between manual ratings of the images and their loss values statistically. However, it is disappointing that a conclusion can be made that there is no correlation between them. In our points of views, a primary reason is that human evaluations are very subjective especially when the differences between the images are trivial. However, when two synthesized images use the same content image and their final loss values (after 5 iterations) differ a lot with different orders of magnitude, they might still look similar and it is  not possible for us to give an exact conclusion on which one is better.     
-Another interesting point is that we find in most cases we evalute the image in the first iteration (which looks most similar to the content image) as the most artistically good-looking among all five, especially when all five iterations of images are not ideal.  
-
-correlation==>no relation
-我们人评判是很主观的，我们有时候看起来很印象派的
-1）人喜欢iteration'小的时候，是喜欢他偏原图content，原因是后面的太乱
-2）喜欢中的时候，既有content轮廓，也有style颜色/风格
-3）大，blur
-人evaluate觉得好看的 loss variance 接近
-
-
+Another interesting point is that we find in most cases we consider the image in the first iteration (which looks most similar to the content image) as the most artistically good-looking among all five, especially when all five iterations of images are not ideal. Following are some points we summarized after the evaluation process:   
+- In the cases when we give the first two iterations highest ratings, the trained image is more similar to the content image and the later iterations might produce images that contain messy textures as in Figure 3. The first iteration produces an image that keeps most features of the content image and very basic features such as colors of the style image.
+- In the cases when we give the third or forth iterations highest ratings, the patterns and the strokes of the style images can be shown clearly in the synthesized image.
+- In the cases when we give the last iteration highest ratings, the style images are often abstract or impressionism and the synthesized image in the fifth iteration is blurred in a way that we think is artistically beautiful.
+- We found that when we use portrait paintings as style images to train portraits, we can get decent results in most cases and their loss values are mostly in the same order of magnitude. We are not sure why this case happens and what it infers.
 
 ### Findings
+We summarized some findings after analyzing all synthesized images we obtained.
+**Portraits**
+ - When we use portraits as content images, we found that a key feature of decent synthesized images is that they have seperated the human face and the background. Hence, for portraits, we expect the style images we use can seperate and assign different objects different features after training, and we observed that paintings with large blocks of colors and clear outlines can achieve this effect.   
+ - For human faces, if some facial defects such as wrinkles and under-eye dark circles are removed in the synthesized image, we often consider such result as decent. Hence, future works can focus on searching for style images that can have such effects for style transfer for portraits.   
+  <p align="center">
+  <img src="images/robert_stl1.png" width="500px"><br />
+</p>
+ - Random small blocks of colors are accpetable or even artistically beautiful in style-transfered sceneries. However, if the color blocks appears on human faces, it will not seem good or even horrific.   
+ <p align="center">
+  <img src="images/robert_ch2.png" width="500px"><br />
+</p>    
 
-You can use the [editor on GitHub](https://github.com/sally9805/eecs349project/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+**Sceneries**
+- On the contrast to portraits, when we use sceneries as content images, most paintings can achieve decent results, especially when the main colors of the scenery photo are light.
+- For sceneries, we give higher iterations better ratings since we observe that applying more features to the sceneries can receive interesting images that we think are artistically beautiful.
+ <p align="center">
+  <img src="images/puzzle.jpg" width="110%"><br />
+</p>  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Results
+In summary, our implementation using CNN model can successfully realize artistic style transfer. The novelty of the project is that we explore how to implement style transfer when the content image is the emphasis of the synthesized image. We also summarized some patterns after we evaluated all 800 synthesized images.
 
-### Markdown
+### Future Works
+Future works can focus on object segmentations for better performance, especially for portraits. According to our observations, abstract paintings with clear outlines and impressionism art can often perform well as style images for portraits. Further testing and research should be done to testify this observation point. 
+Other CNN models such as VGG16 can be used for implementation to explore better models for this topic. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sally9805/eecs349project/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### References
+1. A Neural Algorithm of Artistic Style by Gatys, Ecker and Bethge (2015).
+2. Jiajia is responsible for model training while Haishan is responsible for data acquisition and project website design.
