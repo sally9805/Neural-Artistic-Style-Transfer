@@ -97,7 +97,7 @@ We summarized some findings after analyzing all synthesized images we obtained.
 - On the contrast to portraits, when we use sceneries as content images, most paintings can achieve decent results, especially when the main colors of the scenery photo are light.
 - For sceneries, we give higher iterations better ratings since we observe that applying more features to the sceneries can receive interesting images that we think are artistically beautiful.
  <p align="center">
-  <img src="images/puzzle.jpg" width="110%"><br />
+  <img src="images/alice.jpg" width="110%"><br />
 </p>  
 
 ### Results
