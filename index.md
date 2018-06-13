@@ -71,7 +71,7 @@ We applied 40 style images for each content image and we ran 5 iterations of opt
 
 We include both quantative and qualitative evaluations for the results returned by the model. For qualitative evaluation, we simply evaluate the synthesized images manually. For quantative evaluation, we use the specific weighted loss values returned after each iteration of optimization.   
 When we are evaluating the synthesized images manually, we find that as the iterations of optimization proceed, the noise image is more similar with the style image (i.e. the synthesized image contains more features in the style image such as colors, patterns and strokes) as shown in Figure 6. Hence, in the first iteration of optimization, the synthesized image is most similar with the content image.    
-After we gave ratings to all 800 images, we tried to find correlations between manual ratings of the images and their loss values statistically. However, it is disappointing that a conclusion can be made that there is no correlation between them. In our points of views, a primary reason is that human evaluations are very subjective especially when the differences between the images are trivial. However, when two synthesized images use the same content image and their final loss values (after 5 iterations) differ a lot with different orders of magnitude, they might still look similar and it is  not possible for us to give an exact conclusion on which one is better.     
+After we gave ratings to all 800 images, we tried to find correlations between manual ratings of the images and their loss values statistically. However, it is disappointing that a conclusion can be made that there is no correlation between them. In our points of views, a primary reason is that human evaluations are very subjective especially when the differences between the images are trivial. However, when two synthesized images use the same content image and their final loss values (after 5 iterations) differ a lot with different orders of magnitude, they might still look similar and it is not possible for us to give an exact conclusion on which one is better.     
 Another interesting point is that we find in most cases we consider the image in the first iteration (which looks most similar to the content image) as the most artistically good-looking among all five, especially when all five iterations of images are not ideal. Following are some points we summarized after the evaluation process:   
 - In the cases when we give the first two iterations highest ratings, the trained image is more similar to the content image and the later iterations might produce images that contain messy textures as in Figure 3. The first iteration produces an image that keeps most features of the content image and very basic features such as colors of the style image.
 - In the cases when we give the third or forth iterations highest ratings, the patterns and the strokes of the style images can be shown clearly in the synthesized image.
@@ -80,12 +80,14 @@ Another interesting point is that we find in most cases we consider the image in
 
 ### Findings
 We summarized some findings after analyzing all synthesized images we obtained.
+
 **Portraits**
  - When we use portraits as content images, we found that a key feature of decent synthesized images is that they have seperated the human face and the background. Hence, for portraits, we expect the style images we use can seperate and assign different objects different features after training, and we observed that paintings with large blocks of colors and clear outlines can achieve this effect.   
  - For human faces, if some facial defects such as wrinkles and under-eye dark circles are removed in the synthesized image, we often consider such result as decent. Hence, future works can focus on searching for style images that can have such effects for style transfer for portraits.   
   <p align="center">
   <img src="images/robert_stl1.png" width="500px"><br />
-</p>
+</p>    
+
  - Random small blocks of colors are accpetable or even artistically beautiful in style-transfered sceneries. However, if the color blocks appears on human faces, it will not seem good or even horrific.   
  <p align="center">
   <img src="images/robert_ch2.png" width="500px"><br />
