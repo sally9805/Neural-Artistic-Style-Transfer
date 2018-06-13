@@ -25,6 +25,14 @@ In summary, we found that convolutional neural network performed very well on th
   <i>Figure 2: Le Rêve Robert Downey Jr.</i>
 </p>     
 
+<p align="center">
+  <img src="images/grant_jp2.png" width="500px"><br />
+</p>  
+
+<p align="center">
+  <img src="images/alice b3.png" width="500px"><br />
+</p>  
+
 Since CNN utilized Max Pooling as downsampling strategy, when the image contains large contrastive color blocks in different areas, CNN will perform the best. In our examples, when the style image has big blocks of colors such as *Le Rêve* by *Picasso* in Figure 2, we observed the most decent results. On the contrary, if the style image is too colorful with small blocks of various colors as in Figure 3, the synthesized image will contain messy strokes and the layout of the colors will be chaotic.   
 
 <p align="center">
@@ -97,7 +105,7 @@ We summarized some findings after analyzing all synthesized images we obtained.
 - On the contrast to portraits, when we use sceneries as content images, most paintings can achieve decent results, especially when the main colors of the scenery photo are light.
 - For sceneries, we give higher iterations better ratings since we observe that applying more features to the sceneries can receive interesting images that we think are artistically beautiful.
  <p align="center">
-  <img src="images/alice.jpg" width="110%"><br />
+  <img src="images/alice.jpg" width="85%"><br />
 </p>  
 
 ### Results
